@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Reportes</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background-color: #f4f4f9; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid black; padding: 10px; text-align: center; }
+        th { background-color: #1877F2; color: white; }
+        input, select, button, textarea { margin: 5px; padding: 10px; font-size: 16px; width: 250px; }
+        textarea { width: 500px; height: 100px; resize: none; }
+        button { background-color: #1877F2; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #1559B8; }
+        #search { margin-bottom: 20px; padding: 10px; width: 300px; }
+        form { display: flex; flex-wrap: wrap; justify-content: center; margin-bottom: 20px; }
+        form input, form select, form textarea { margin-right: 10px; }
+    </style>
+</head>
+<body>
+    <h2 style="color: #1877F2;">Gestión de Reportes</h2>
+    
+    <input type="text" id="search" placeholder="Buscar por nombre" onkeyup="filtrarReportes()">
+    
+    <form id="reporteForm">
+        <input type="date" id="fecha" required>
+        <input type="text" id="nombre" placeholder="Nombre del alumno" required>
+        <select id="grado">
+            <option>3A</option><option>3B</option><option>4A</option><option>4B</option>
+            <option>5A</option><option>5B</option><option>6A</option><option>6B</option>
+            <option>7A</option><option>7B</option><option>8A</option><option>8B</option><option>8C</option>
+            <option>9A</option><option>9B</option><option>10A</option><option>10B</option>
+            <option>11A</option><option>11B</option>
+        </select>
+        <input type="text" id="curso" placeholder="Curso" required>
+        <select id="tipo">
+            <option>Disciplina</option><option>Tareas</option><option>Ejercicios</option><option>Otro</option>
+        </select>
+        <input type="text" id="profesor" placeholder="Profesor" required>
+        <textarea id="comentarios" placeholder="Comentarios" required></textarea>
+        
+        <button type="submit">Agregar Reporte</button>
+        <button type="button" id="guardarCambios" style="display:none;">Guardar Cambios</button>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Fecha</th><th>Nombre</th><th>Grado</th><th>Curso</th>
+                <th>Tipo</th><th>Profesor</th><th>Comentarios</th><th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="reporteTable"></tbody>
+    </table>
+
+    <script src="script.js"></script>
+</body>
+</html>
